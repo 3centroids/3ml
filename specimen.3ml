@@ -1,0 +1,289 @@
+#include math_utils.3ml
+
+% s0
+#title Specimen
+#author Michael
+#date
+
+% This is a comment
+
+#s1 What is 3ML?
+
+3ML stands for Minimal Math Markup Language.
+It's a side project where I deepen my understanding of
+languages, learn parsing and develop an MVP of a language
+I'd personally use for my math and competitive programming 
+notes about compelling problems I've seen and about useful techniques
+in solving such problems in these domains.
+
+#s1 Syntax
+
+Syntax was inspired mainly by LaTeX and is used in math blocks as is.
+The goal was to design a dedicated Math Markup Language for the web
+and keep it minimal. Hence the name (wink-wink). 
+Readability was also a crucial factor in design stage.
+
+3ML was inspired by: LaTeX, Markdown, Textile and Typst (readability), 
+and even C (preprocessor macros). 
+
+% TODO: anything else?
+
+#s2 List of commands
+
+#def-list
+title
+: `title`
+
+author
+: `author`
+
+date
+: `date`
+
+section
+: `s{k}`, `sec{k}`, `section{k}`
+
+inline math
+: `$...$`
+
+display math
+: `$$...\$$`
+
+theorem
+: `thm`, `theorem`
+
+definition
+: `def`, `definition`
+
+lemma
+: `lem`, `lemma`
+
+example
+: `exmp`, `example`
+
+problem
+: `prob`, `problem`
+
+proof
+: `prf`, `proof`
+
+corollary
+: `cor`, `corollary`
+
+remark
+: `rem`, `remark`
+
+list
+: `list`
+
+definition list
+: `def-list`
+
+warning
+: `warn`, `warning`
+
+note
+: `note`
+
+tip
+: `tip`
+
+table
+: `table`
+
+no-expand
+: `no-exp`, `no-expand`
+#end
+
+#s2 Sections
+
+Sections are the primary method of grouping content. 
+They (usually) have titles. The only exception is when adding additional
+content to a section (reference it as _A_) after a subsection (_B_).
+To have the paragraph after _B_ be a part of _A_ and not _B_, define a new
+section _C_ without a title (empty line after `#s`).
+
+Use `#s{k}` (without the `{}`), where $k \in {1, 2, \ldots, 6}$.
+
+#s2 Paragraphs
+
+Paragraphs do not require any special syntax. 
+Even when split across lines, in the final output, they will form one body.
+
+To start a new paragraph, leave an empty line.
+
+#s2 Math
+ 
+Equations (math blocks) are extracted from source files and handled by KaTeX.
+
+Inline:
+$\sum_{k=1}^{n} k = \frac{n(n+1)}{2}$
+
+Display:
+$$
+\sum_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}
+$$
+
+% TODO:
+% How to use LaTeX macros across multiple files in math modes? 
+
+#s2 Environments
+
+Environments group content together.
+Instances of envs include:
+#list
+- theorems, 
+- lemmas, 
+- definitions, 
+- examples,
+- problems, 
+- proofs, 
+- corollaries, 
+- remarks, 
+- lists, 
+- warnings, 
+- notes, 
+- tips,
+- tables,
+- no-expand.
+#end
+
+Since 3ML is centered around math, most elements of this list are related
+to it. However, there are a few useful exceptions like warnings, 
+notes and tips, which were inspired by Github-flavored Markdown. 
+
+`no-expand` is a special block which treats everything inside it
+as plain text and doesn't expand 3ML syntax.
+
+Use `#end` after a block to terminate it.
+
+
+An example of a theorem:
+
+#thm Polynomial remainder theorem (little Bezout's theorem)
+For every $r \in \RR$, any polynomial $f(x)$ is the sum of $f(r)$ and
+the product of $(x-r)$ and a polynomial $g(x)$, where $deg(g) = deg(f)-1$.
+
+In particular, $f(r)$ is the remainder of the Euclidean division of $f(x)$
+by $(x-r)$, and $(x-r)$ is a divisor of $f(x)$ IFF $f(r)=0$.
+#end
+
+An example of a list:
+
+#list
+- unordered item
+- another unordered item
++ an ordered item
+++ ordered subitem (may be indented)
++ second ordered item at level 1
+#end
+
+For now, lists shouldn't include any blocks (except for LaTeX math).
+
+#s2 Inline modifiers
+
+#list
+- backticks (\`...\`) for code (the inside will be treated as regular text) 
+- underscores (\_...\_) for emph (usually italicized)
+- asterics (\*...\*) for strong (usually bold)
+#end
+
+#s2 Including content
+
+To include external content, like chapters or code, use `#include` syntax.
+
+Example (chapter):
+
+#no-expand
+#include chapter2.3ml
+#end
+
+Example (code):
+
+#code
+#include python_example.py
+#end
+
+#s1 Extras
+
+#s2 Formatting
+
+`3ml-format` can automatically format your .3ml files,
+which includes splitting lines (80 character limit by default)
+and add comments (like to one below) before every section beginning 
+to improve readability.
+
+% Example comment
+% ===============
+
+% TODO: Decide if section comments should have specific lengths per level
+% or if they should be the same length as section titles.
+
+#s2 Vim syntax highlighting integration
+
+% TODO
+
+#s1 TODOs
+
+#s2 Language features
+- tables
+- footnotes
+- sidenotes (margin)
+- summaries (hidden or expanded text)
+- definition lists (:)
+- blockquotes
+- inline escaping
+
+#s2 Others
+- language config (for thm-like blocks, instead of "Theorem", use "Twierdzenie" in Polish, etc.)
+- styling (custom classes, hooks via `@decorators`)
+- premade document classes (styles, like `article` in LaTeX)
+- LaTeX (KaTeX) math macros (e.g. `\RR` for the set of Reals)
+- Vim integration (syntax highlighting)
+- VSCode integration (syntax highlighting and intellisense)
+- `3ml-format`
+- `3ml-compile`
+
+#s1 Example document
+
+#no-exp
+
+#title Number Theory Basics
+#author Author
+#date
+
+#s1 Introduction
+
+Some text to ilustrate 3ML's capabilities.
+
+This handout will cover basics of:
+#list
+- fundamental theory of arithmetic
+- congruence modulo $M$ (modular arithmetic)
+- quadratic residues
+- etc.
+#end
+
+#s1 Prime numbers and related theorems
+
+#def Prime number
+A _prime number_ is a natural number greater than 1 that is not a product
+of two smaller natural numbers.
+
+Equivalently, $p \in \NN$ is prime IFF $p>1$ and 
+$\nexists\, a,b < p  \in \mathbb{N} : p = ab$.
+
+Set of prime numbers is denoted by $\PP$.
+#end
+
+#thm Fundamental theorem of arithmetic
+Every integer $n > 1$ is either prime or can be represented 
+*uniquely* as a product of prime numbers, up to the order of the factors.
+#end
+
+#s1 Modular arithmetic
+
+Write more text here...
+
+#end
+
