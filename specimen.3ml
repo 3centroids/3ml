@@ -30,70 +30,7 @@ and even C (preprocessor macros).
 
 #s2 List of commands
 
-#def-list
-title
-: `title`
-
-author
-: `author`
-
-date
-: `date`
-
-section
-: `s{k}`, `sec{k}`, `section{k}`
-
-inline math
-: `$...$`
-
-display math
-: `$$...\$$`
-
-theorem
-: `thm`, `theorem`
-
-definition
-: `def`, `definition`
-
-lemma
-: `lem`, `lemma`
-
-example
-: `exmp`, `example`
-
-problem
-: `prob`, `problem`
-
-proof
-: `prf`, `proof`
-
-corollary
-: `cor`, `corollary`
-
-remark
-: `rem`, `remark`
-
-list
-: `list`
-
-definition list
-: `def-list`
-
-warning
-: `warn`, `warning`
-
-note
-: `note`
-
-tip
-: `tip`
-
-table
-: `table`
-
-no-expand
-: `no-exp`, `no-expand`
-#end
+#include commands.3ml
 
 #s2 Sections
 
@@ -157,8 +94,7 @@ as plain text and doesn't expand 3ML syntax.
 
 Use `#end` after a block to terminate it.
 
-
-An example of a theorem:
+Theorem example:
 
 #thm Polynomial remainder theorem (little Bezout's theorem)
 For every $r \in \RR$, any polynomial $f(x)$ is the sum of $f(r)$ and
@@ -168,7 +104,7 @@ In particular, $f(r)$ is the remainder of the Euclidean division of $f(x)$
 by $(x-r)$, and $(x-r)$ is a divisor of $f(x)$ IFF $f(r)=0$.
 #end
 
-An example of a list:
+List example:
 
 #list
 - unordered item
@@ -178,7 +114,7 @@ An example of a list:
 + second ordered item at level 1
 #end
 
-For now, lists shouldn't include any blocks (except for LaTeX math).
+For now, lists shouldn't include any environments (except for LaTeX math).
 
 #s2 Inline modifiers
 
@@ -192,13 +128,13 @@ For now, lists shouldn't include any blocks (except for LaTeX math).
 
 To include external content, like chapters or code, use `#include` syntax.
 
-Example (chapter):
+Chapter inclusion example:
 
 #no-expand
 #include chapter2.3ml
 #end
 
-Example (code):
+Code inclusion example:
 
 #code
 #include python_example.py
@@ -221,69 +157,12 @@ to improve readability.
 
 #s2 Vim syntax highlighting integration
 
-% TODO
-
 #s1 TODOs
-
-#s2 Language features
-- tables
-- footnotes
-- sidenotes (margin)
-- summaries (hidden or expanded text)
-- definition lists (:)
-- blockquotes
-- inline escaping
-
-#s2 Others
-- language config (for thm-like blocks, instead of "Theorem", use "Twierdzenie" in Polish, etc.)
-- styling (custom classes, hooks via `@decorators`)
-- premade document classes (styles, like `article` in LaTeX)
-- LaTeX (KaTeX) math macros (e.g. `\RR` for the set of Reals)
-- Vim integration (syntax highlighting)
-- VSCode integration (syntax highlighting and intellisense)
-- `3ml-format`
-- `3ml-compile`
+% TODO
+#include todo.3ml
 
 #s1 Example document
 
 #no-exp
-
-#title Number Theory Basics
-#author Author
-#date
-
-#s1 Introduction
-
-Some text to ilustrate 3ML's capabilities.
-
-This handout will cover basics of:
-#list
-- fundamental theory of arithmetic
-- congruence modulo $M$ (modular arithmetic)
-- quadratic residues
-- etc.
+#include example.3ml
 #end
-
-#s1 Prime numbers and related theorems
-
-#def Prime number
-A _prime number_ is a natural number greater than 1 that is not a product
-of two smaller natural numbers.
-
-Equivalently, $p \in \NN$ is prime IFF $p>1$ and 
-$\nexists\, a,b < p  \in \mathbb{N} : p = ab$.
-
-Set of prime numbers is denoted by $\PP$.
-#end
-
-#thm Fundamental theorem of arithmetic
-Every integer $n > 1$ is either prime or can be represented 
-*uniquely* as a product of prime numbers, up to the order of the factors.
-#end
-
-#s1 Modular arithmetic
-
-Write more text here...
-
-#end
-

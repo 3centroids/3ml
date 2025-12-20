@@ -1,0 +1,64 @@
+#def-list
+title
+: `title`
+
+author
+: `author`
+
+date
+: `date`
+
+section
+: `s{k}`, `sec{k}`, `section{k}`
+
+inline math
+: `$...$`
+
+display math
+: `$$...\$$`
+
+theorem
+: `thm`, `theorem`
+
+definition
+: `def`, `definition`
+
+lemma
+: `lem`, `lemma`
+
+example
+: `exmp`, `example`
+
+problem
+: `prob`, `problem`
+
+proof
+: `prf`, `proof`
+
+corollary
+: `cor`, `corollary`
+
+remark
+: `rem`, `remark`
+
+list
+: `list`
+
+definition list
+: `def-list`
+
+warning
+: `warn`, `warning`
+
+note
+: `note`
+
+tip
+: `tip`
+
+table
+: `table`
+
+no-expand
+: `no-exp`, `no-expand`
+#end

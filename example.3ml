@@ -1,0 +1,36 @@
+#title Number Theory Basics
+#author Author
+#date
+
+#s1 Introduction
+
+Some text to ilustrate 3ML's capabilities.
+
+This handout will cover basics of:
+#list
+- fundamental theory of arithmetic
+- congruence modulo $M$ (modular arithmetic)
+- quadratic residues
+- etc.
+#end
+
+#s1 Prime numbers and related theorems
+
+#def Prime number
+A _prime number_ is a natural number greater than 1 that is not a product
+of two smaller natural numbers.
+
+Equivalently, $p \in \NN$ is prime IFF $p>1$ and 
+$\nexists\, a,b < p  \in \mathbb{N} : p = ab$.
+
+Set of prime numbers is denoted by $\PP$.
+#end
+
+#thm Fundamental theorem of arithmetic
+Every integer $n > 1$ is either prime or can be represented 
+*uniquely* as a product of prime numbers, up to the order of the factors.
+#end
+
+#s1 Modular arithmetic
+
+Write more text here...
