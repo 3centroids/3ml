@@ -69,20 +69,20 @@ $$
 Environments group content together.
 Instances of envs include:
 #list
-- theorems, 
-- lemmas, 
-- definitions, 
-- examples,
-- problems, 
-- proofs, 
-- corollaries, 
-- remarks, 
-- lists, 
-- warnings, 
-- notes, 
-- tips,
-- tables,
-- no-expand.
+    - theorems, 
+    - lemmas, 
+    - definitions, 
+    - examples,
+    - problems, 
+    - proofs, 
+    - corollaries, 
+    - remarks, 
+    - lists, 
+    - warnings, 
+    - notes, 
+    - tips,
+    - tables,
+    - no-expand.
 #end
 
 Since 3ML is centered around math, most elements of this list are related
@@ -97,21 +97,21 @@ Use `#end` after a block to terminate it.
 Theorem example:
 
 #thm Polynomial remainder theorem (little Bezout's theorem)
-For every $r \in \RR$, any polynomial $f(x)$ is the sum of $f(r)$ and
-the product of $(x-r)$ and a polynomial $g(x)$, where $deg(g) = deg(f)-1$.
+    For every $r \in \RR$, any polynomial $f(x)$ is the sum of $f(r)$ and
+    the product of $(x-r)$ and a polynomial $g(x)$, where $deg(g) = deg(f)-1$.
 
-In particular, $f(r)$ is the remainder of the Euclidean division of $f(x)$
-by $(x-r)$, and $(x-r)$ is a divisor of $f(x)$ IFF $f(r)=0$.
+    In particular, $f(r)$ is the remainder of the Euclidean division of $f(x)$
+    by $(x-r)$, and $(x-r)$ is a divisor of $f(x)$ IFF $f(r)=0$.
 #end
 
 List example:
 
 #list
-- unordered item
-- another unordered item
-+ an ordered item
-++ ordered subitem (may be indented)
-+ second ordered item at level 1
+    - unordered item
+    - another unordered item
+    + an ordered item
+        ++ ordered subitem (may be indented)
+    + second ordered item at level 1
 #end
 
 For now, lists shouldn't include any environments (except for LaTeX math).
@@ -119,9 +119,9 @@ For now, lists shouldn't include any environments (except for LaTeX math).
 #s2 Inline modifiers
 
 #list
-- backticks (\`...\`) for code (the inside will be treated as regular text) 
-- underscores (\_...\_) for emph (usually italicized)
-- asterics (\*...\*) for strong (usually bold)
+    - backticks (\`...\`) for code (the inside will be treated as regular text) 
+    - underscores (\_...\_) for emph (usually italicized)
+    - asterisks (\*...\*) for strong (usually bold)
 #end
 
 #s2 Including content
@@ -131,13 +131,13 @@ To include external content, like chapters or code, use `#include` syntax.
 Chapter inclusion example:
 
 #no-expand
-#include chapter2.3ml
+    #include chapter2.3ml
 #end
 
 Code inclusion example:
 
 #code
-#include python_example.py
+    #include python_example.py
 #end
 
 #s1 Extras
@@ -164,5 +164,5 @@ to improve readability.
 #s1 Example document
 
 #no-exp
-#include example.3ml
+    #include example.3ml
 #end

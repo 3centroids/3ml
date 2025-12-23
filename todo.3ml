@@ -1,18 +1,22 @@
 #s2 Language features
-- tables
-- footnotes
-- sidenotes (margin)
-- summaries (hidden or expanded text)
-- definition lists (:)
-- blockquotes
-- inline escaping
+#list
+    - tables
+    - footnotes
+    - sidenotes (margin)
+    - summaries (hidden or expanded text)
+    - definition lists (:)
+    - blockquotes
+    - inline escaping
+#end
 
 #s2 Others
-- language config (for thm-like blocks, instead of "Theorem", use "Twierdzenie" in Polish, etc.)
-- styling (custom classes, hooks via `@decorators`)
-- premade document classes (styles, like `article` in LaTeX)
-- LaTeX (KaTeX) math macros (e.g. `\RR` for the set of Reals)
-- Vim integration (syntax highlighting)
-- VSCode integration (syntax highlighting and intellisense)
-- `3ml-format`
-- `3ml-compile`
+#list
+    - language config (for thm-like blocks, instead of "Theorem", use "Twierdzenie" in Polish, etc.)
+    - styling (custom classes, hooks via `@decorators`)
+    - premade document classes (styles, like `article` in LaTeX)
+    - LaTeX (KaTeX) math macros (e.g. `\RR` for the set of Reals)
+    - Vim integration (syntax highlighting)
+    - VSCode integration (syntax highlighting and intellisense)
+    - `3ml-format`
+    - `3ml-compile`
+#end
